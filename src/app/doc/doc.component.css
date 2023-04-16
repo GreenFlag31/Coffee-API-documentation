@@ -1,0 +1,170 @@
+.intro {
+  max-height: 400px;
+}
+.intro-container {
+  position: relative;
+}
+.intro-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+.intro-container h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.7em;
+  font-weight: 900;
+}
+.documentation {
+  padding: 0.625em;
+  font-size: 1.1em;
+  line-height: 1.2;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.text {
+  margin: 2em 0;
+}
+.request,
+.response {
+  margin: 3em 0;
+}
+.text p {
+  margin-bottom: 0.5em;
+}
+/* .example {
+  margin-top: 1em;
+} */
+.get {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3em;
+  padding: 0.625em;
+  background: var(--white-table);
+  border-radius: 0.5em;
+}
+.get p {
+  margin: 0;
+}
+.get i {
+  color: var(--brown);
+}
+.example .error {
+  padding: 0.2em 0;
+}
+
+.table-title {
+  margin-bottom: 0.5em;
+  padding: 0.625em 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.2em;
+  margin-bottom: 0.7em;
+  text-align: left;
+}
+
+table tr {
+  /* border: 1px solid #ddd; */
+  padding: 0.35em;
+}
+
+.response tbody tr:first-child,
+.response tbody tr:last-child {
+  height: 63px;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--brown);
+  color: var(--white);
+  padding: 0.8em;
+}
+tbody tr:nth-child(odd) {
+  background: var(--white-table);
+}
+
+@media (max-width: 700px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    /* ??? */
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 0.625em;
+    box-shadow: 0px 1px 3px 0px #7e7e7eb0;
+    border: none;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td span {
+    word-break: break-all;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    min-width: 40%;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    color: var(--brown);
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+  .response tbody tr:first-child,
+  .response tbody tr:last-child {
+    height: auto;
+  }
+
+  tbody tr:nth-child(odd) {
+    background: white;
+  }
+}

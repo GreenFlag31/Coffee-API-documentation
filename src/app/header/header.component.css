@@ -1,0 +1,30 @@
+.navigation {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  min-height: 70px;
+  transition: 0.3s;
+}
+.navigation.bgEnabled {
+  min-height: 53px;
+  background: #ffffffd4;
+}
+.nav-container {
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+.left-side,
+.right-side {
+  padding: 0.8em;
+  font-size: 1.2em;
+}
+.left-side {
+  color: var(--brown);
+  font-weight: 700;
+}
+.home.active,
+.documentation.active {
+  border-bottom: 3px solid brown;
+}

@@ -1,0 +1,136 @@
+.background-container {
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.welcome-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--brown);
+  width: 100%;
+  padding: 0.625em;
+  text-align: center;
+}
+.welcome-banner h3 {
+  font-size: 1.7em;
+}
+.welcome-banner h5 {
+  font-size: 1.3em;
+  margin-top: 0.5em;
+}
+.introduction {
+  padding: 0.625em;
+  font-size: 1.1em;
+  max-width: 1000px;
+  margin: auto;
+}
+.introduction img {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  max-height: 350px;
+  border-radius: 1em;
+  object-fit: cover;
+}
+.introduction-content .title {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 15px;
+}
+.emphasize {
+  color: var(--brown);
+  font-weight: 700;
+}
+.text-container {
+  line-height: 1.2;
+  text-align: justify;
+}
+.text-container p {
+  margin-bottom: 0.5em;
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  margin: 2em 0;
+}
+.action a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s;
+}
+.introduction-content .action a:hover {
+  color: green;
+}
+.about-me {
+  background: var(--dark-brown);
+  /* margin-bottom: 5em; */
+  padding: 0.625em;
+  font-size: 1.1em;
+}
+.about-me-content {
+  max-width: 1000px;
+  margin: auto;
+  color: var(--white);
+  text-align: justify;
+}
+.about-me-content img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 1em auto;
+}
+.about-me-content p {
+  line-height: 1.2;
+}
+.about-me .action {
+  color: var(--white);
+  gap: 0.7em;
+  margin: 2em 0;
+}
+.about-me .portfolio i {
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+.action .portfolio {
+  padding: 0.625em;
+  cursor: pointer;
+  display: flex;
+  gap: 0.5em;
+  color: var(--white);
+}
+.portfolio:hover i {
+  color: var(--brown);
+}
+section.contact {
+  padding: 1em;
+  margin: 3em 0;
+}
+.text {
+  margin-bottom: 1.5em;
+}
+.text p {
+  font-size: 1.1em;
+  line-height: 1.2;
+  text-align: justify;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.links a {
+  color: black;
+  font-size: 1.5em;
+  transform: scale(1);
+  transition: 0.3s;
+}
+.links a:hover {
+  color: var(--brown);
+  transform: scale(1.1);
+}

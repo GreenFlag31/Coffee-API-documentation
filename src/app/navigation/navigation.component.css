@@ -1,0 +1,33 @@
+.navigation-container {
+  display: flex;
+  gap: 0.5em;
+  margin: 4em 0 2em;
+}
+.previous,
+.next {
+  width: 100%;
+}
+.text-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  border: 2px solid var(--brown);
+  border-radius: 0.6em;
+  font-weight: 700;
+  padding: 0.625em;
+  cursor: pointer;
+}
+.text-container p {
+  transition: transform 0.3s;
+  transform: translateX(0);
+}
+
+.text-container:hover p {
+  transform: translateX(5%);
+}
+@media (min-width: 600px) {
+  .previous,
+  .next {
+    width: 50%;
+  }
+}

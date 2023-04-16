@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Kulim";
+  src: url("./assets/Kulim/KulimPark-Regular.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Kulim";
+  src: url("./assets/Kulim/KulimPark-SemiBold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Kulim";
+  src: url("./assets/Kulim/KulimPark-Bold.ttf") format("truetype");
+  font-weight: 900;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kulim", sans-serif;
+}
+:root {
+  --brown: brown;
+  --dark-brown: #442121;
+  --white: #fff;
+  --white-table: #f8f8f8;
+}
