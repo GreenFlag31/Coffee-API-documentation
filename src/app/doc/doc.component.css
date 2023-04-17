@@ -25,11 +25,13 @@
   line-height: 1.2;
   max-width: 1000px;
   margin: auto;
+  overflow-x: hidden;
 }
 
 .text {
-  margin: 2em 0;
+  margin: 2em 0 5em;
 }
+
 .request,
 .response {
   margin: 3em 0;
@@ -37,12 +39,15 @@
 .text p {
   margin-bottom: 0.5em;
 }
-/* .example {
-  margin-top: 1em;
-} */
+.example .http-get {
+  font-weight: 700;
+  color: var(--brown);
+  margin-right: 0.5em;
+}
 .get {
   display: flex;
   justify-content: space-between;
+  /* align-items: center; */
   gap: 0.3em;
   padding: 0.625em;
   background: var(--white-table);
@@ -51,29 +56,34 @@
 .get p {
   margin: 0;
 }
-.get i {
+.get i,
+.first-line i {
   color: var(--brown);
+  /* padding: 0.3em; */
+  cursor: pointer;
 }
-.example .error {
-  padding: 0.2em 0;
+.error,
+.success {
+  padding: 0.5em;
+  border-left: 2px solid red;
+  margin: 0.4em 0;
+  font-size: 0.9em;
+}
+.success {
+  border-left: 2px solid green;
 }
 
-.table-title {
+.table-title,
+.example-title {
   margin-bottom: 0.5em;
-  padding: 0.625em 0;
-  text-align: center;
-  text-transform: uppercase;
+  /* padding: 0.625em 0; */
+  /* text-align: center; */
+  /* text-transform: uppercase; */
 }
 table {
   border-collapse: collapse;
   width: 100%;
   table-layout: fixed;
-}
-
-table caption {
-  font-size: 1.2em;
-  margin-bottom: 0.7em;
-  text-align: left;
 }
 
 table tr {
@@ -167,4 +177,44 @@ tbody tr:nth-child(odd) {
   tbody tr:nth-child(odd) {
     background: white;
   }
+}
+
+.example-API-call {
+  margin-bottom: 8em;
+}
+.code-container {
+  position: relative;
+  background: var(--white-table);
+  padding: 1em;
+  border-radius: 0.5em;
+}
+.first-line {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  gap: 0.5em;
+}
+.first-line i {
+  color: var(--brown);
+}
+.code-container .purple {
+  color: #b500b5;
+}
+.code-container .lightblue {
+  color: #04a5e3;
+}
+
+.code-container .orange {
+  color: orange;
+}
+
+.example {
+  position: relative;
+}
+
+.success,
+.error {
+  position: absolute;
+  top: 100%;
+  left: 0;
 }

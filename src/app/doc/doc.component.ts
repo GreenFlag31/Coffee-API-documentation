@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeInOut } from 'src/shared/animation';
+import { fadeInOut, goingRight, itemsToExpire } from 'src/shared/animation';
 
 @Component({
   selector: 'app-doc',
   templateUrl: './doc.component.html',
   styleUrls: ['./doc.component.css'],
-  animations: [fadeInOut],
+  animations: [fadeInOut, goingRight, itemsToExpire],
 })
 export class DocComponent implements OnInit {
-  copied = false;
-  error = false;
+  getCopied = false;
+  exampleCopied = false;
+  getError = false;
+  exampleError = false;
   navigation = {
     previous: {
       name: 'Home',
@@ -20,15 +22,28 @@ export class DocComponent implements OnInit {
 
   ngOnInit() {}
 
-  async copyToClipBoard(baseURL: HTMLSpanElement) {
+  async copyToClipBoard(baseURL: string) {
     try {
-      await navigator.clipboard.writeText(baseURL.innerText);
-      this.copied = true;
-      setTimeout(() => (this.copied = false), 3000);
+      await navigator.clipboard.writeText(baseURL);
+      if (baseURL.slice(0, 5) === 'https') {
+        this.getCopied = true;
+      } else {
+        this.exampleCopied = true;
+      }
+      setTimeout(() => {
+        this.getCopied = false;
+        this.exampleCopied = false;
+      }, 3000);
     } catch (err) {
-      this.copied = false;
-      this.error = true;
-      setTimeout(() => (this.error = true), 3000);
+      if (baseURL.slice(0, 5) === 'https') {
+        this.getError = true;
+      } else {
+        this.exampleError = true;
+      }
+      setTimeout(() => {
+        this.getError = false;
+        this.exampleError = false;
+      }, 3000);
     }
   }
 }

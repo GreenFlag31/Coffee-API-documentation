@@ -23,14 +23,14 @@
 .introduction {
   padding: 0.625em;
   font-size: 1.1em;
-  max-width: 1000px;
+  max-width: 800px;
   margin: auto;
 }
 .introduction img {
   display: block;
   width: 100%;
-  max-width: 500px;
-  max-height: 350px;
+  /* max-width: 500px; */
+  max-height: 382px;
   border-radius: 1em;
   object-fit: cover;
 }
@@ -52,18 +52,24 @@
 }
 .action {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 0.4em;
   margin: 2em 0;
+}
+.action-icons {
+  cursor: pointer;
+  padding: 0.625em;
 }
 .action a {
   text-decoration: none;
   color: black;
   transition: color 0.3s;
+  font-weight: 700;
+  font-size: 1.1em;
 }
-.introduction-content .action a:hover {
-  color: green;
+.action-icons:hover a {
+  color: var(--brown);
 }
 .about-me {
   background: var(--dark-brown);
@@ -72,43 +78,44 @@
   font-size: 1.1em;
 }
 .about-me-content {
-  max-width: 1000px;
+  max-width: 800px;
   margin: auto;
   color: var(--white);
   text-align: justify;
+  margin-top: 2em;
 }
 .about-me-content img {
   display: block;
-  width: 100px;
-  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  width: 100%;
   border-radius: 50%;
-  margin: 1em auto;
+  float: left;
+  margin-right: 0.5em;
 }
 .about-me-content p {
   line-height: 1.2;
 }
 .about-me .action {
   color: var(--white);
-  gap: 0.7em;
   margin: 2em 0;
+  width: 100%;
 }
-.about-me .portfolio i {
+.about-me .portfolio p {
   font-size: 1.1em;
   transition: color 0.3s;
 }
 .action .portfolio {
-  padding: 0.625em;
   cursor: pointer;
-  display: flex;
-  gap: 0.5em;
   color: var(--white);
 }
-.portfolio:hover i {
+.portfolio:hover p {
   color: var(--brown);
 }
 section.contact {
   padding: 1em;
-  margin: 3em 0;
+  max-width: 1000px;
+  margin: 3em auto;
 }
 .text {
   margin-bottom: 1.5em;
@@ -123,6 +130,7 @@ section.contact {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  will-change: transform;
 }
 .links a {
   color: black;
@@ -133,4 +141,45 @@ section.contact {
 .links a:hover {
   color: var(--brown);
   transform: scale(1.1);
+}
+
+@media (min-width: 600px) {
+  .intro-pic-content {
+    display: grid;
+    grid-template-columns: 50% auto;
+    margin-bottom: 5em;
+  }
+  .introduction-content {
+    margin-left: 0.5em;
+  }
+  .action {
+    margin-bottom: 0;
+  }
+  .contact-content p {
+    text-align: center;
+  }
+
+  .about-me-content {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+  }
+  .about-me-content img {
+    min-width: 120px;
+    min-height: 120px;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 800px) {
+  .intro-pic-content {
+    padding: 0.5em;
+  }
+  .introduction-content {
+    margin-left: 1em;
+  }
+  .introduction-content p {
+    margin-bottom: 1em;
+  }
 }

@@ -15,19 +15,29 @@
         <p>The only supported HTTP verb is GET:</p>
         <div class="get">
           <p>
-            GET
+            <span class="http-get">GET</span>
             <span class="code" #baseURL
               >https://coffee-type-api.web.app/coffee</span
             >
           </p>
           <i
             class="fa-regular fa-copy"
-            (click)="copyToClipBoard(baseURL)"
-            *ngIf="!copied"
+            (click)="copyToClipBoard(baseURL.innerText)"
+            *ngIf="!getCopied"
           ></i>
-          <i class="fa-solid fa-check" *ngIf="copied" @fadeInOut></i>
+          <i class="fa-solid fa-check" *ngIf="getCopied" @fadeInOut></i>
         </div>
-        <p class="error" *ngIf="error">Failed to copy. Try manually.</p>
+        <div class="message">
+          <p
+            class="success"
+            [@expiration]="getCopied ? 'visible' : 'invisible'"
+          >
+            Copied !
+          </p>
+          <p class="error" [@expiration]="getError ? 'visible' : 'invisible'">
+            Failed to copy, try manually
+          </p>
+        </div>
       </div>
     </div>
     <div class="request">
@@ -145,6 +155,62 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="example-API-call">
+      <div class="example">
+        <h3 class="example-title">Example</h3>
+        <div class="code-container">
+          <div class="first-line">
+            <p>
+              <span class="purple">const </span>
+              <span class="lightblue">baseURL</span> =
+              <span class="orange"
+                >'https://coffee-type-api.web.app/coffee'</span
+              ><br />
+            </p>
+            <div class="copy-icons">
+              <i
+                class="fa-regular fa-copy"
+                (click)="
+                  copyToClipBoard(
+                    'const baseURL = `https://coffee-type-api.web.app/coffee`;
+                  const request = await fetch(baseURL)
+                    .then((response) => response.json())
+                    .then((data) => console.log(data))'
+                  )
+                "
+                *ngIf="!exampleCopied"
+              ></i>
+              <i class="fa-solid fa-check" *ngIf="exampleCopied" @fadeInOut></i>
+            </div>
+          </div>
+          <p>
+            <span class="purple">const </span>
+            <span class="lightblue">request</span> =
+            <span class="purple">await</span> fetch(baseURL)<br />
+            &nbsp;&nbsp;.then((response) =>
+            <span class="lightblue">response</span>.<span class="lightyellow"
+              >json</span
+            >())<br />
+            &nbsp;&nbsp;.then((<span class="lightblue">data</span>) =>
+            console.log(data))
+          </p>
+        </div>
+        <div class="message">
+          <p
+            class="success"
+            [@expiration]="exampleCopied ? 'visible' : 'invisible'"
+          >
+            Copied !
+          </p>
+          <p
+            class="error"
+            [@expiration]="exampleError ? 'visible' : 'invisible'"
+          >
+            Failed to copy, try manually
+          </p>
+        </div>
+      </div>
     </div>
   </div>
   <app-navigation [navigation]="navigation"></app-navigation>

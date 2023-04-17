@@ -1,7 +1,7 @@
 .navigation-container {
   display: flex;
   gap: 0.5em;
-  margin: 4em 0 2em;
+  margin: 2em 0;
 }
 .previous,
 .next {
@@ -22,12 +22,15 @@
   transform: translateX(0);
 }
 
-.text-container:hover p {
+.previous .text-container:hover p {
+  transform: translateX(-10%);
+}
+.next .text-container:hover p {
   transform: translateX(5%);
 }
-@media (min-width: 600px) {
+/* @media (min-width: 700px) {
   .previous,
   .next {
     width: 50%;
   }
-}
+} */
