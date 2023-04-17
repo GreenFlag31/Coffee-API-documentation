@@ -47,7 +47,6 @@
 .get {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   gap: 0.3em;
   padding: 0.625em;
   background: var(--white-table);
@@ -59,26 +58,31 @@
 .get i,
 .first-line i {
   color: var(--brown);
-  /* padding: 0.3em; */
+  display: inline-block;
   cursor: pointer;
+  transition: 0.3s;
+  transform: scale(1);
+  will-change: transform;
 }
+.get i:hover,
+.first-line i:hover {
+  transform: scale(1.1);
+}
+
 .error,
 .success {
   padding: 0.5em;
-  border-left: 2px solid red;
+  border-left: 3px solid red;
   margin: 0.4em 0;
   font-size: 0.9em;
 }
 .success {
-  border-left: 2px solid green;
+  border-left: 3px solid green;
 }
 
 .table-title,
 .example-title {
   margin-bottom: 0.5em;
-  /* padding: 0.625em 0; */
-  /* text-align: center; */
-  /* text-transform: uppercase; */
 }
 table {
   border-collapse: collapse;
@@ -87,7 +91,6 @@ table {
 }
 
 table tr {
-  /* border: 1px solid #ddd; */
   padding: 0.35em;
 }
 
@@ -126,14 +129,15 @@ tbody tr:nth-child(odd) {
 
   table thead {
     /* ??? */
-    border: none;
+    /* border: none;
     clip: rect(0 0 0 0);
     height: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: 1px; */
+    display: none;
   }
 
   table tr {

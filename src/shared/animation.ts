@@ -13,18 +13,11 @@ export const fadeInOut = trigger('fadeInOut', [
   ]),
 ]);
 
-export const goingRight = trigger('right', [
-  transition(':enter', [
-    style({ opacity: 0, transform: 'translateX(-30%)' }),
-    animate('0.3s ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
-  ]),
-]);
-
-export const itemsToExpire = trigger('expiration', [
+export const goingRight = trigger('goingRight', [
   state(
     'visible',
     style({
-      transform: 'translateY(0)',
+      transform: 'translateX(0)',
     })
   ),
   state(
@@ -33,5 +26,5 @@ export const itemsToExpire = trigger('expiration', [
       transform: 'translateX(-120%)',
     })
   ),
-  transition('invisible <=> visible', [animate('0.3s ease-out')]),
+  transition('invisible <=> visible', [animate('0.2s ease-out')]),
 ]);

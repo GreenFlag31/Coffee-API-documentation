@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeInOut, goingRight, itemsToExpire } from 'src/shared/animation';
+import { fadeInOut, goingRight } from 'src/shared/animation';
 
 @Component({
   selector: 'app-doc',
   templateUrl: './doc.component.html',
   styleUrls: ['./doc.component.css'],
-  animations: [fadeInOut, goingRight, itemsToExpire],
+  animations: [fadeInOut, goingRight],
 })
 export class DocComponent implements OnInit {
   getCopied = false;

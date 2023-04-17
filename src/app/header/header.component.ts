@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { debounceTime, filter, fromEvent, tap } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, debounceTime, fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  scrollSubscription!: Subscription;
   backgroundOnScroll = false;
   scrollLimit = 200;
-  constructor() {}
 
   ngOnInit() {
-    fromEvent(window, 'scroll')
+    this.scrollSubscription = fromEvent(window, 'scroll')
       .pipe(debounceTime(50))
       .subscribe(() => {
         if (window.scrollY > this.scrollLimit) {
@@ -21,5 +21,9 @@ export class HeaderComponent implements OnInit {
           this.backgroundOnScroll = false;
         }
       });
+  }
+
+  ngOnDestroy() {
+    this.scrollSubscription.unsubscribe();
   }
 }

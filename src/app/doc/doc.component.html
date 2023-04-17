@@ -1,6 +1,6 @@
 <section class="intro">
   <div class="intro-container">
-    <img src="../../assets/pictures/doc2.jpg" alt="Delicious coffee" />
+    <img src="../../assets/pictures/doc.jpg" alt="Delicious coffee" />
     <h3>Documentation</h3>
   </div>
 </section>
@@ -30,11 +30,11 @@
         <div class="message">
           <p
             class="success"
-            [@expiration]="getCopied ? 'visible' : 'invisible'"
+            [@goingRight]="getCopied ? 'visible' : 'invisible'"
           >
             Copied !
           </p>
-          <p class="error" [@expiration]="getError ? 'visible' : 'invisible'">
+          <p class="error" [@goingRight]="getError ? 'visible' : 'invisible'">
             Failed to copy, try manually
           </p>
         </div>
@@ -199,13 +199,13 @@
         <div class="message">
           <p
             class="success"
-            [@expiration]="exampleCopied ? 'visible' : 'invisible'"
+            [@goingRight]="exampleCopied ? 'visible' : 'invisible'"
           >
             Copied !
           </p>
           <p
             class="error"
-            [@expiration]="exampleError ? 'visible' : 'invisible'"
+            [@goingRight]="exampleError ? 'visible' : 'invisible'"
           >
             Failed to copy, try manually
           </p>
