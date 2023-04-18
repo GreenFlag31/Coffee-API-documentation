@@ -117,6 +117,9 @@ table th {
 tbody tr:nth-child(odd) {
   background: var(--white-table);
 }
+.response p {
+  margin-top: 0.5em;
+}
 
 .example-API-call {
   margin-bottom: 8em;
@@ -130,7 +133,6 @@ tbody tr:nth-child(odd) {
 .first-line {
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   gap: 0.5em;
 }
 .first-line i {
@@ -234,9 +236,6 @@ table th.darkMode {
   tbody tr:nth-child(odd) {
     background: white;
   }
-}
-
-@media (max-width: 700px) {
   tbody tr.darkMode {
     box-shadow: 0px 1px 3px 0px #000000b0;
   }
@@ -246,5 +245,10 @@ table th.darkMode {
 
   table td.darkMode:not(:last-child) {
     border-bottom: 1px solid #626262;
+  }
+}
+@media (min-width: 700px) {
+  ::ng-deep .previous {
+    width: 50% !important;
   }
 }

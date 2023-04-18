@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { fadeInOut, goingRight } from 'src/shared/animation';
 
 @Component({
@@ -7,7 +7,7 @@ import { fadeInOut, goingRight } from 'src/shared/animation';
   styleUrls: ['./doc.component.css'],
   animations: [fadeInOut, goingRight],
 })
-export class DocComponent implements OnInit {
+export class DocComponent {
   getCopied = false;
   exampleCopied = false;
   getError = false;
@@ -21,8 +21,6 @@ export class DocComponent implements OnInit {
   @ViewChild('documentation') documentation!: ElementRef;
 
   constructor() {}
-
-  ngOnInit() {}
 
   async copyToClipBoard(baseURL: string) {
     try {

@@ -3,6 +3,7 @@
   grid-template-rows: min-content auto;
   min-height: 100px;
   background: #641f1f;
+  background: #895508;
   color: var(--white);
   font-size: 0.9em;
   padding: 10px;
