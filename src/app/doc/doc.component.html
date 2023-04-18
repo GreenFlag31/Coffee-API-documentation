@@ -4,215 +4,226 @@
     <h3>Documentation</h3>
   </div>
 </section>
-<section class="documentation">
-  <div class="content">
-    <div class="text">
-      <p>
-        This API follows the REST API principles. Returned data is in JSON
-        format.
-      </p>
-      <div class="example">
-        <p>The only supported HTTP verb is GET:</p>
-        <div class="get">
-          <p>
-            <span class="http-get">GET</span>
-            <span class="code" #baseURL
-              >https://coffee-type-api.web.app/coffee</span
+<div class="documentation-wrapper" #documentation>
+  <section class="documentation">
+    <div class="content">
+      <div class="text">
+        <p>
+          This API follows the REST API principles. Returned data is in JSON
+          format.
+        </p>
+        <div class="example">
+          <p>The only supported HTTP verb is GET:</p>
+          <div class="get">
+            <p>
+              <span class="http-get">GET</span>
+              <span class="code" #baseURL
+                >https://coffee-type-api.web.app/coffee</span
+              >
+            </p>
+            <i
+              class="fa-regular fa-copy"
+              (click)="copyToClipBoard(baseURL.innerText)"
+              *ngIf="!getCopied"
+            ></i>
+            <i class="fa-solid fa-check" *ngIf="getCopied" @fadeInOut></i>
+          </div>
+          <div class="message">
+            <p
+              class="success"
+              [@goingRight]="getCopied ? 'visible' : 'invisible'"
             >
-          </p>
-          <i
-            class="fa-regular fa-copy"
-            (click)="copyToClipBoard(baseURL.innerText)"
-            *ngIf="!getCopied"
-          ></i>
-          <i class="fa-solid fa-check" *ngIf="getCopied" @fadeInOut></i>
-        </div>
-        <div class="message">
-          <p
-            class="success"
-            [@goingRight]="getCopied ? 'visible' : 'invisible'"
-          >
-            Copied !
-          </p>
-          <p class="error" [@goingRight]="getError ? 'visible' : 'invisible'">
-            Failed to copy, try manually
-          </p>
+              Copied !
+            </p>
+            <p class="error" [@goingRight]="getError ? 'visible' : 'invisible'">
+              Failed to copy, try manually
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="request">
-      <h3 class="table-title">Request</h3>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Endpoint</th>
-            <th scope="col">Description</th>
-            <th scope="col">Possible values</th>
-            <th scope="col">Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="endpoint"><span>/</span></td>
-            <td data-label="description">
-              Returns an array of object(s) containing all types of coffee
-            </td>
-            <td data-label="possible-values">/</td>
-            <td data-label="example">
-              <span>https://coffee-type-api.web.app/coffee</span>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="endpoint"><span>/type/:type</span></td>
-            <td data-label="description">
-              Returns an array of object(s) containing the type of coffee
-            </td>
-            <td data-label="possible-values">
-              arabica, robusta, liberica, excelsa
-            </td>
-            <td data-label="example">
-              <span>https://coffee-type-api.web.app/coffee/type/arabica</span>
-            </td>
-          </tr>
-          <tr>
-            <td scope="row" data-label="endpoint">
-              <span>/region/:region</span>
-            </td>
-            <td data-label="description">
-              Returns an array of object(s) containing the type(s) of coffee
-              matching a specific region
-            </td>
-            <td data-label="possible-values">africa, america, arabia, asia</td>
-            <td data-label="example">
-              <span>https://coffee-type-api.web.app/coffee/region/america</span>
-            </td>
-          </tr>
-          <tr>
-            <td scope="row" data-label="endpoint">
-              <span>/country/:country</span>
-            </td>
-            <td data-label="description">
-              Returns an array of object(s) containing the type(s) of coffee
-              matching a specific country
-            </td>
-            <td data-label="possible-values">
-              guatemala, honduras, el-salvador, costa-rica, panama, mexico, ...
-            </td>
-            <td data-label="example">
-              <span
-                >https://coffee-type-api.web.app/coffee/country/ecuador</span
-              >
-            </td>
-          </tr>
-          <tr>
-            <td scope="row" data-label="endpoint">
-              <span>/brewing_methods/:method</span>
-            </td>
-            <td data-label="description">
-              Returns an array of object(s) containing the type(s) of coffee
-              matching a specific brewing method
-            </td>
-            <td data-label="possible-values">
-              drip, pour-over, french-press, expresso, cold-brew, moka-pot
-            </td>
-            <td data-label="example">
-              <span
-                >https://coffee-type-api.web.app/coffee/brewing_methods/expresso</span
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="response">
-      <h3 class="table-title">Response</h3>
+      <div class="request">
+        <h3 class="table-title">Request</h3>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Endpoint</th>
+              <th scope="col">Description</th>
+              <th scope="col">Possible values</th>
+              <th scope="col">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="endpoint"><span>/</span></td>
+              <td data-label="description">
+                Returns an array of objects containing all types of coffee
+              </td>
+              <td data-label="possible-values">/</td>
+              <td data-label="example">
+                <span>https://coffee-type-api.web.app/coffee</span>
+              </td>
+            </tr>
+            <tr>
+              <td data-label="endpoint"><span>/type/:type</span></td>
+              <td data-label="description">
+                Returns an array of an object containing the type of coffee
+              </td>
+              <td data-label="possible-values">
+                arabica, robusta, liberica, excelsa
+              </td>
+              <td data-label="example">
+                <span>https://coffee-type-api.web.app/coffee/type/arabica</span>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row" data-label="endpoint">
+                <span>/region/:region</span>
+              </td>
+              <td data-label="description">
+                Returns an array of object(s) containing the type(s) of coffee
+                matching a specific region
+              </td>
+              <td data-label="possible-values">
+                africa, america, arabia, asia
+              </td>
+              <td data-label="example">
+                <span
+                  >https://coffee-type-api.web.app/coffee/region/america</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td scope="row" data-label="endpoint">
+                <span>/country/:country</span>
+              </td>
+              <td data-label="description">
+                Returns an array of object(s) containing the type(s) of coffee
+                matching a specific country
+              </td>
+              <td data-label="possible-values">
+                guatemala, honduras, el-salvador, costa-rica, panama, mexico,
+                ...
+              </td>
+              <td data-label="example">
+                <span
+                  >https://coffee-type-api.web.app/coffee/country/ecuador</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td scope="row" data-label="endpoint">
+                <span>/brewing_methods/:method</span>
+              </td>
+              <td data-label="description">
+                Returns an array of object(s) containing the type(s) of coffee
+                matching a specific brewing method
+              </td>
+              <td data-label="possible-values">
+                drip, pour-over, french-press, expresso, cold-brew, moka-pot
+              </td>
+              <td data-label="example">
+                <span
+                  >https://coffee-type-api.web.app/coffee/brewing_methods/expresso</span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="response">
+        <h3 class="table-title">Response</h3>
 
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">HTTP Status Code</th>
-            <th scope="col">Definition</th>
-            <th scope="col">Reason</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-label="status">200</td>
-            <td data-label="definition">OK</td>
-            <td data-label="reason">Successful request</td>
-          </tr>
-          <tr>
-            <td data-label="status">404</td>
-            <td data-label="definition">Not found</td>
-            <td data-label="reason">
-              Endpoint does not exist: see possible values
-            </td>
-          </tr>
-          <tr>
-            <td data-label="status">429</td>
-            <td data-label="definition">Too many requests</td>
-            <td data-label="reason">Throttle, max 1 call / second</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="example-API-call">
-      <div class="example">
-        <h3 class="example-title">Example</h3>
-        <div class="code-container">
-          <div class="first-line">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">HTTP Status Code</th>
+              <th scope="col">Definition</th>
+              <th scope="col">Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="status">200</td>
+              <td data-label="definition">OK</td>
+              <td data-label="reason">Successful request</td>
+            </tr>
+            <tr>
+              <td data-label="status">404</td>
+              <td data-label="definition">Not found</td>
+              <td data-label="reason">
+                Endpoint does not exist: see possible values
+              </td>
+            </tr>
+            <tr>
+              <td data-label="status">429</td>
+              <td data-label="definition">Too many requests</td>
+              <td data-label="reason">Throttle, max 1 call / second</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="example-API-call">
+        <div class="example">
+          <h3 class="example-title">Example</h3>
+          <div class="code-container">
+            <div class="first-line">
+              <p>
+                <span class="purple">const </span>
+                <span class="lightblue">baseURL</span> =
+                <span class="orange"
+                  >'https://coffee-type-api.web.app/coffee'</span
+                ><br />
+              </p>
+              <div class="copy-icons">
+                <i
+                  class="fa-regular fa-copy"
+                  (click)="
+                    copyToClipBoard(
+                      'const baseURL = `https://coffee-type-api.web.app/coffee`;
+                    const request = await fetch(baseURL)
+                      .then((response) => response.json())
+                      .then((data) => console.log(data))'
+                    )
+                  "
+                  *ngIf="!exampleCopied"
+                ></i>
+                <i
+                  class="fa-solid fa-check"
+                  *ngIf="exampleCopied"
+                  @fadeInOut
+                ></i>
+              </div>
+            </div>
             <p>
               <span class="purple">const </span>
-              <span class="lightblue">baseURL</span> =
-              <span class="orange"
-                >'https://coffee-type-api.web.app/coffee'</span
-              ><br />
+              <span class="lightblue">request</span> =
+              <span class="purple">await</span> fetch(baseURL)<br />
+              &nbsp;&nbsp;.then((response) =>
+              <span class="lightblue">response</span>.<span class="lightyellow"
+                >json</span
+              >())<br />
+              &nbsp;&nbsp;.then((<span class="lightblue">data</span>) =>
+              console.log(data))
             </p>
-            <div class="copy-icons">
-              <i
-                class="fa-regular fa-copy"
-                (click)="
-                  copyToClipBoard(
-                    'const baseURL = `https://coffee-type-api.web.app/coffee`;
-                  const request = await fetch(baseURL)
-                    .then((response) => response.json())
-                    .then((data) => console.log(data))'
-                  )
-                "
-                *ngIf="!exampleCopied"
-              ></i>
-              <i class="fa-solid fa-check" *ngIf="exampleCopied" @fadeInOut></i>
-            </div>
           </div>
-          <p>
-            <span class="purple">const </span>
-            <span class="lightblue">request</span> =
-            <span class="purple">await</span> fetch(baseURL)<br />
-            &nbsp;&nbsp;.then((response) =>
-            <span class="lightblue">response</span>.<span class="lightyellow"
-              >json</span
-            >())<br />
-            &nbsp;&nbsp;.then((<span class="lightblue">data</span>) =>
-            console.log(data))
-          </p>
-        </div>
-        <div class="message">
-          <p
-            class="success"
-            [@goingRight]="exampleCopied ? 'visible' : 'invisible'"
-          >
-            Copied !
-          </p>
-          <p
-            class="error"
-            [@goingRight]="exampleError ? 'visible' : 'invisible'"
-          >
-            Failed to copy, try manually
-          </p>
+          <div class="message">
+            <p
+              class="success"
+              [@goingRight]="exampleCopied ? 'visible' : 'invisible'"
+            >
+              Copied !
+            </p>
+            <p
+              class="error"
+              [@goingRight]="exampleError ? 'visible' : 'invisible'"
+            >
+              Failed to copy, try manually
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <app-navigation [navigation]="navigation"></app-navigation>
-</section>
-<app-footer></app-footer>
+    <app-navigation [navigation]="navigation"></app-navigation>
+  </section>
+  <app-footer (toggleDM)="toggleDarkMode()"></app-footer>
+</div>

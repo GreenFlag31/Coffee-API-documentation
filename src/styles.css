@@ -21,9 +21,11 @@
 }
 :root {
   --brown: brown;
-  --dark-brown: #442121;
+  --dark-brown: #4c1414;
   --white: #fff;
   --white-table: #f8f8f8;
+  --cappuccino: #d8860b;
+  --general-dark-bg: #313131;
 }
 
 /* custom scrollbar */

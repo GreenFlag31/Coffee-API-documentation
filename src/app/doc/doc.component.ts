@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fadeInOut, goingRight } from 'src/shared/animation';
 
 @Component({
@@ -18,6 +18,8 @@ export class DocComponent implements OnInit {
       link: '/',
     },
   };
+  @ViewChild('documentation') documentation!: ElementRef;
+
   constructor() {}
 
   ngOnInit() {}
@@ -45,5 +47,35 @@ export class DocComponent implements OnInit {
         this.exampleError = false;
       }, 3000);
     }
+  }
+
+  toggleDarkMode() {
+    this.documentation.nativeElement.classList.toggle('darkMode');
+    this.documentation.nativeElement
+      .querySelector('.get')
+      .classList.toggle('darkMode');
+
+    const tableTH =
+      this.documentation.nativeElement.querySelectorAll('table th');
+    tableTH.forEach((th: HTMLTableElement) => {
+      th.classList.toggle('darkMode');
+    });
+    const bodyTable =
+      this.documentation.nativeElement.querySelectorAll('tbody');
+    bodyTable.forEach((element: HTMLBodyElement) => {
+      element.querySelectorAll('tr').forEach((tr) => {
+        tr.classList.toggle('darkMode');
+      });
+    });
+
+    const tableTD =
+      this.documentation.nativeElement.querySelectorAll('table td');
+    tableTD.forEach((td: HTMLTableElement) => {
+      td.classList.toggle('darkMode');
+    });
+
+    this.documentation.nativeElement
+      .querySelector('.code-container')
+      .classList.toggle('darkMode');
   }
 }

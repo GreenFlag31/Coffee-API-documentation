@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements AfterViewInit {
+  darkMode = false;
+  @Output() toggleDM = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    if (localStorage.getItem('darkMode') === 'true') {
+      this.toggleDarkMode();
+    }
   }
 
+  toggleDarkMode() {
+    this.darkMode = !this.darkMode;
+    localStorage.setItem('darkMode', this.darkMode.toString());
+    this.toggleDM.emit();
+  }
 }

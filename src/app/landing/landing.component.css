@@ -41,6 +41,8 @@
 }
 .emphasize {
   color: var(--brown);
+  color: var(--cappuccino);
+
   font-weight: 700;
 }
 .text-container {
@@ -69,7 +71,11 @@
   font-size: 1.1em;
 }
 .action-icons:hover a {
-  color: var(--brown);
+  color: var(--cappuccino);
+}
+
+.about-me .emphasize {
+  color: var(--cappuccino);
 }
 .about-me {
   background: var(--dark-brown);
@@ -138,9 +144,25 @@ section.contact {
   transform: scale(1);
   transition: 0.3s;
 }
-.links a:hover {
-  color: var(--brown);
+.links a:hover,
+.links a.darkMode:hover {
+  color: var(--cappuccino);
   transform: scale(1.1);
+}
+
+/* DarkMode */
+.landing-container.darkMode {
+  background: var(--general-dark-bg);
+  color: var(--white);
+}
+.action-icons a.darkMode {
+  color: var(--white);
+}
+.action-icons.darkMode:hover a {
+  color: var(--cappuccino);
+}
+.links a.darkMode {
+  color: var(--white);
 }
 
 @media (min-width: 600px) {
