@@ -21,7 +21,7 @@
   font-size: 1.2em;
 }
 .left-side {
-  color: var(--brown);
+  color: var(--cappuccino);
   font-weight: 700;
 }
 .home,
@@ -32,10 +32,10 @@
 }
 .home:hover,
 .documentation:hover {
-  border-bottom: 3px solid brown;
+  border-bottom: 3px solid var(--cappuccino);
 }
 
 .home.active,
 .documentation.active {
-  border-bottom: 3px solid brown;
+  border-bottom: 3px solid var(--cappuccino);
 }
